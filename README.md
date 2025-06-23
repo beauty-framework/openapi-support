@@ -15,7 +15,7 @@ Modern OpenAPI 3 integration for [beauty-framework](https://github.com/beauty-fr
 Require via composer:
 
 ```bash
-composer require beauty-framework/openapi-suport
+composer require beauty-framework/openapi-support
 ```
 
 **Requirements:**
