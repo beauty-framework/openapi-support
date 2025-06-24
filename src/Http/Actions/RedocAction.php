@@ -3,15 +3,17 @@ declare(strict_types=1);
 
 namespace Beauty\OpenApi\Http\Actions;
 
+use Beauty\Http\Request\HttpRequest;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 
-class RedocAction
+class RedocAction implements DocumentationActionInterface
 {
     /**
+     * @param HttpRequest $request
      * @return ResponseInterface
      */
-    public function __invoke(): ResponseInterface
+    public function __invoke(HttpRequest $request): ResponseInterface
     {
         return new Response(200, [
             'Content-Type' => 'text/html',

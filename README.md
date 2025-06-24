@@ -81,7 +81,7 @@ return array_merge(
 4. **Access your docs at:**
 
 * `/openapi.json` for raw spec
-* `/docs/api` for interactive Redoc UI
+* `/docs/api` for interactive Stoplight UI (change between Swagger, Redoc, Rapid, Stoplight via `.env` `OPENAPI_MODE=`)
 * You can also provide your own action classes (see SpecsAction and RedocAction) if you want to use custom logic for rendering the spec or documentation page. Just typehint your custom action classes in your controller methods.
 Example:
 ```php
@@ -92,6 +92,23 @@ Example:
   }
 ```
 * This gives you full control over how the OpenAPI spec and documentation UI are served.
+
+## Switching Documentation UI
+You can control which documentation UI is shown at `/docs/api` by setting the `OPENAPI_MODE` variable in your `.env` file:
+
+```dotenv
+OPENAPI_MODE=stoplight # or swagger, redoc, rapid
+```
+
+**Supported values:**
+- stoplight (default)
+- swagger
+- redoc
+- rapid
+
+The selected viewer will be automatically rendered at `/docs/api` depending on this value.
+
+If you provide an invalid value, Stoplight will be used by default.
 
 ## Customization
 
@@ -109,7 +126,7 @@ Example:
 You can generate the spec as a file using the CLI command:
 
 ```bash
-php ./beauty openapi:generate
+./beauty openapi:generate
 ```
 
 This allows serving the OpenAPI spec statically in production.
